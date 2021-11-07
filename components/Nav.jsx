@@ -1,6 +1,8 @@
 import requests from "../utils/requests";
+import { useRouter } from "next/router";
 
 function Nav() {
+  const router = useRouter();
   return (
     <nav className="relative">
       <div
@@ -19,6 +21,7 @@ function Nav() {
         {Object.entries(requests).map(([key, { title, url }]) => (
           <h2
             key={key}
+            onClick={() => router.push(`?genre=${key}`)}
             className="
             last:pr-24
             cursor-pointer 
